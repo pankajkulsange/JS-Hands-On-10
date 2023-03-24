@@ -62,6 +62,3 @@ setInterval(function () {
 }, 1000);
 console.log("Answer of ninth Question:");
 console.log("Clock is changing every second");
-
-// game logic
-let randomNumber = Math.floor(Math.random() * 100);
