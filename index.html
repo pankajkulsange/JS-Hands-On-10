@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM - JS Hands on 10</title>
+    <style>
+      #cards {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+      .card {
+        height: 100px;
+        width: 100px;
+        border: 1px solid black;
+        background-color: red;
+      }
+      .diff {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>DOM</h2>
+    <h3>To see the output go to console under inspect</h3>
+
+    <!-- question 1  -->
+    <p>Que1: Write the code to access element which is having id as "text"</p>
+
+    <fieldset>
+      <pre>
+        <p id="text">This is paragraph with id as text</p>
+<!-- answer for question 1 -->
+Ans:
+  let element1 = document.getElementById("text");
+  console.log("Answer of first Question:");
+  console.log(element1);
+</pre>
+    </fieldset>
+    <!-- question 2  -->
+    <p>Que2: Write the code to access element which is having tag as "h1"</p>
+
+    <fieldset>
+      <pre>
+        <h1>This is heading with H1 tag</h1>
+Ans:
+<!-- answer for question 3 -->
+let element2 = document.getElementsByTagName("h1");
+console.log("Answer of second Question:");
+console.log(element2[0]);
+
+
+</pre>
+    </fieldset>
+    <!-- question 3  -->
+    <p>Que3: Write the code to access element which is having class as "box"</p>
+
+    <fieldset>
+      <pre>
+        <p class="box">This is a paragraph tag with class name as box</p>
+Ans:
+<!-- answer for question 3 -->
+let element3 = document.getElementsByClassName("box");
+console.log("Answer of third Question:");
+console.log(element3[0]);
+</pre>
+    </fieldset>
+    <!-- question 4  -->
+    <p>
+      Que4: Change the heading from "Hello" to "Hello World" using DOM
+      Manipulation
+    </p>
+    <fieldset>
+      <pre>
+        <h1 id="heading2">Hello</h1>
+Ans: 
+<!-- answer for question 4  -->
+let element4 = document.getElementById("heading2");
+element4.textContent = "Hello World";
+      </pre>
+    </fieldset>
+
+    <!-- question 5  -->
+    <p>
+      Que5: Create an HTML page having content as Hello world and a button named
+      Replace Text. When user will click on this button page content should be
+      changed to "Welcome to Elevation academy"
+    </p>
+    <fieldset>
+      <pre>
+            <p id="text2">Hello World</p>
+            <button onclick="replaceText()">Replace Text</button>
+Ans: 
+<!-- answer for question 5  -->
+let element5 = document.getElementById("text2");
+console.log("Answer of fifth Question:");
+function replaceText() {
+  element5.innerText = "Welcome to Elevation Academy";
+}
+      </pre>
+    </fieldset>
+
+    <!-- question 6  -->
+    <p>
+      Que6: "&lt;h1&gt;Hello &lt;/h1&gt; Add one style attribute and give text
+      color as red and id attribute and give the id value as ""heading"" in the
+      above given h1 tag using DOM functions"
+    </p>
+    <fieldset>
+      <pre>
+            <h1 id="heading">Hello World</h1>
+Ans: 
+<!-- answer for question 6  -->
+let element6 = document.getElementById("heading");
+element6.style = "color: red";
+      </pre>
+    </fieldset>
+
+    <!-- question 7  -->
+    <p>
+      Que6: Create three cards on HTML page and arrange them using flex property
+      in row or horizontal direction and also create button at the bottom named
+      "Change Flex direction". When user clicks on this button, the cards
+      arrangement should be changed to vertical direction.
+    </p>
+    <fieldset>
+      <pre>
+            <div id="cards">
+              <div class="card"></div>
+              <div class="card"></div>
+              <div class="card"></div>
+            </div>
+            <button onclick="changeDir()">Change Flex Direction</button>
+Ans: 
+<!-- answer for question 7  -->
+let element7 = document.getElementById("cards");
+let count = 0;
+function changeDir() {
+  if (count % 2 === 0) {
+    element7.style = "flex-direction: column";
+    count++;
+  } else {
+    element7.style = "flex-direction: row";
+    count++;
+  }
+}
+      </pre>
+    </fieldset>
+
+    <!-- question 8  -->
+    <p>Que8: What’s the difference between window vs document?</p>
+    <fieldset>
+      <pre>
+Ans: 
+
+<h3 class="diff">Feature</h3>         <h3 class="diff">Window</h3>                              <h3 class="diff">Document</h3>
+Defination      The global object of the browser    The root element of the HTML document
+
+Scope           Global                              Local to the current document
+
+Access          Window or this (global Scope)       document or this (local scope)
+
+Properties      location, history, navigator        head, body, title, links 
+
+Events          load, unload, resize, scroll        click, submit, keydown, load
+
+Methods         alert(),setTimeout(),setInterval()  getElementById(), querySelector(), createElement()
+
+Parent/Child    Parent of document                  Child of window 
+
+E.g.            window.location.href                docuement.getElementById('myElement')
+</pre>
+    </fieldset>
+
+    <!-- question 9  -->
+    <p>
+      Que9: Write code to implement timer clock using JS -- display HH:MM:SS --
+      the time should keep updating every second
+    </p>
+    <fieldset>
+      <pre>
+        <h1 id="timer">00:00:00</h1>
+Ans: 
+setInterval(function () {
+  const timer = document.getElementById("timer");
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, "0");
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  const seconds = now.getSeconds().toString().padStart(2, "0");
+  const currentTime = hours + ":" + minutes + ":" + seconds;
+  timer.innerText = currentTime;
+}, 1000);
+</pre>
+    </fieldset>
+
+    <!-- question 10  -->
+    <p>Que6: Guess My Number</p>
+    <fieldset>
+      <button>
+        <a href="guessMyNumber.html"
+          >Click Here to Navigate to Guess My Number</a
+        >
+      </button>
+    </fieldset>
+    <script src="./script.js"></script>
+  </body>
+</html>

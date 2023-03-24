@@ -1,0 +1,98 @@
+body {
+  background-color: brown;
+}
+/* Header  */
+#header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+#palyAgain {
+  width: 160px;
+  height: 60px;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+}
+#instruct {
+  color: white;
+  margin-top: -10px;
+}
+#instruct {
+  font-size: 30px;
+}
+/* Main body  */
+#wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#heading {
+  color: white;
+}
+#line {
+  height: 10px;
+  width: 100%;
+  background-color: white;
+  z-index: 0;
+  margin-top: 60px;
+}
+#box1 {
+  height: 130px;
+  width: 130px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  margin-top: -60px;
+}
+#number {
+  font-size: 70px;
+  font-weight: 300;
+}
+/* container  */
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#left,
+#right {
+  height: 250px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+/* left  */
+#left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+#num {
+  border: 5px solid white;
+  background-color: brown;
+  height: 100px;
+  width: 200px;
+}
+#checkBtn {
+  height: 80px;
+  width: 150px;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+}
+/* right  */
+#right {
+  display: inline-block;
+}
+#guessText {
+  font-size: 40px;
+}
+#para1,
+#para2 {
+  font-size: 20px;
+}
