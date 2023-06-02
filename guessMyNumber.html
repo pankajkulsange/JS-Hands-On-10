@@ -10,7 +10,7 @@
   <body>
     <!-- header  -->
     <div id="header">
-      <input type="button" id="palyAgain" value="Play Again" />
+      <button id="palyAgain" onclick="reloadPage()">Play Again</button>
       <p id="instruct">(Between 1 and 100)</p>
     </div>
     <!-- main body  -->
@@ -23,7 +23,7 @@
     <div id="container">
       <div id="left">
         <input type="text" id="num" />
-        <input type="button" id="checkBtn" value="Check!" />
+        <button id="checkBtn" onclick="checkNumber()">Check!</button>
       </div>
       <div id="right">
         <p id="guessText">Start Guessing...</p>

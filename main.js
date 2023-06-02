@@ -1,26 +1,41 @@
-// game logic
-let checkNum = document.getElementById("num");
-let btn = document.getElementById("checkBtn");
-let para = document.getElementById("guessText");
-let number = document.getElementById("number");
-let para2 = document.getElementById("highScore");
-let randomNumber = Math.floor(Math.random() * 100);
-console.log(randomNumber);
+// reloading page
+const reloadPage = () => {
+  window.location.reload(true);
+};
+
+// finding elements
+let randomNumber = Math.floor(Math.random() * 100 + 1); // random number generate
+let checkNum = document.getElementById("num"); // input element
+let para = document.getElementById("guessText"); // start guessing text
+let number = document.getElementById("number"); // ? text
+let para1 = document.getElementById("chances"); // changes element
+let para2 = document.getElementById("highScore"); // highscore element
+let bg = document.getElementsByTagName("body"); // body
+
 let counter = 100;
-btn.addEventListener("click", () => {
-  if (randomNumber < Number(checkNum.value)) {
-    para.innerText = "Number is High";
-    counter--;
-  } else if (randomNumber > Number(checkNum.value)) {
-    number.innerText = "Number is Low";
-    counter--;
-  } else {
-    number.innerText = randomNumber;
-    para.innerText = "Hurrey correct guess";
-    counter--;
-    para2.innerText = `Highest Score is ${counter}`;
-    let bg = document.getElementsByTagName("body");
-    bg[0].style = "background-color: green";
-    checkNum.style = "background-color: green";
+let highScore = 0;
+console.log(randomNumber);
+
+// logic
+const checkNumber = () => {
+  if (counter === 1) {
+    reloadPage();
   }
-});
+  let value = Number(checkNum.value);
+  // console.log(value);
+  if (randomNumber > value) {
+    // Number is low
+    para.innerText = "Number is low";
+  } else if (randomNumber === value) {
+    para.innerText = "Hurrey correct guess";
+    number.innerText = `${value}`;
+    highScore = `${100 - counter + 1}`;
+    checkNum.style.backgroundColor = "green";
+    bg[0].style = "background-color: green";
+  } else {
+    para.innerText = "Number is high";
+  }
+  counter--;
+  para1.innerText = `${counter}`;
+  para2.innerText = `${highScore}`;
+};

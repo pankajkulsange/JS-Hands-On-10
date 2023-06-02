@@ -77,7 +77,10 @@ body {
   border: 5px solid white;
   background-color: brown;
   height: 100px;
-  width: 200px;
+  width: 150px;
+  color: white;
+  font-size: 80px;
+  padding-left: 60px;
 }
 #checkBtn {
   height: 80px;
